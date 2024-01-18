@@ -9,10 +9,10 @@ const app: Express = express();
 dotenv.config();
 const port = process.env.PORT;
 
-app.use(express.json()); // Add this line to enable JSON body parsing
+app.use(express.json());
 
 try {
-    mongoose.connect(`mongodb://localhost:27017/walletapp`);
+    mongoose.connect(`mongodb://localhost:27017/newwalletapp`);
     console.log('DB connected')
 } catch (error) {
     console.log(error);

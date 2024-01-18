@@ -8,6 +8,7 @@ export interface IUser extends Document {
     gender: 'male' | 'female';
     age: number;
     balance: number;
+    role: 'user' | 'owner' | 'director' | 'manager';
 }
 
 const userSchema: Schema<IUser> = new Schema({
@@ -16,6 +17,7 @@ const userSchema: Schema<IUser> = new Schema({
     name: { type: String, required: true },
     gender: { type: String, enum: ['male', 'female'], required: true },
     age: { type: Number, required: true },
+    role:{type: String, enum: ['user' , 'owner' , 'director' , 'manager'], required:true}
 });
 
 const User = mongoose.model<IUser>('User', userSchema);

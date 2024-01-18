@@ -9,7 +9,8 @@ export const register = async (req: Request, res: Response) => {
             password: await bcrypt.hash(req.body.password, 10),
             name: req.body.name,
             gender: req.body.gender,
-            age: req.body.age
+            age: req.body.age,
+            role: req.body.role || 'user'
         });
         const savedUser = await user.save();
         console.log('User Saved:', savedUser);
